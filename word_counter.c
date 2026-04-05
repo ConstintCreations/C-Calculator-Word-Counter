@@ -3,8 +3,15 @@
 
 #define LINE_LENGTH 1024
 
-int main() {
-    FILE *filePointer = fopen("word_counter_tests/fourLinesEightWords.txt", "r");
+int main(int argc, char *argv[]) {
+
+    char *fileName = NULL;
+    if (argv[1]) {
+        fileName = argv[1];
+    } else {
+        fileName = "defaultTest.txt";
+    }
+    FILE *filePointer = fopen(fileName, "r");
 
     char buffer[LINE_LENGTH];
     int lines = 0, words = 0;
